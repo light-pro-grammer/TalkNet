@@ -39,7 +39,7 @@ export async function POST(req: Request) {
       const userSubscriptions = user.privateMetadata.subscriptions || [];
 
       const updatedSubscriptions = userSubscriptions.filter(
-        (subscription) => subscription.sessionId !== sessionId
+        (subscription: any) => subscription.sessionId !== sessionId
       );
 
       await clerkClient.users.updateUser(user.id, {
